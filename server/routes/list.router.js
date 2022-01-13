@@ -9,12 +9,14 @@ const pool = require('../modules/pool.js');
 router.post('/', (req, res) => {
     console.log('this is req.body', req.body);
     const sqlText = 
-    `INSERT INTO "groceries" ("list") 
-    VALUES ($1)`;
+    `INSERT INTO "groceries" ("name", "quantity", "unit") 
+    VALUES ($1, $2, $3)`;
 
     let queryParams = [
-        req.body.list
-    ]
+        req.body.name,
+        req.body.quantity,
+        req.body.unit
+    ];
 
     pool.query(sqlText, queryParams)
         .then((result) => {
