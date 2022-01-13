@@ -1,7 +1,7 @@
 // Importing useState from react
 import {useState} from 'react';
 
-function GroceryForm () {
+function GroceryForm ({addItem}) {
     // Constants we need for later
     const [newItemName, setNewItemName] = useState('');
     const [newItemQuantity, setNewItemQuantity] = useState('');
@@ -23,6 +23,7 @@ function GroceryForm () {
         console.log('new Item is:', newItem);
 
         // Here is where I need to call the POST function
+        addItem(newItem);
 
         // Clear inputs
         setNewItemName('');

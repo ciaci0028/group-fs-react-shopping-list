@@ -30,15 +30,15 @@ function App() {
     }; // end of get
   
     // start of post
-    /*function addItem = (() => {
-        axios.post('/list', )
+    const addItem = ((newItem) => {
+        axios.post('/list', newItem)
             .then( (response) => {
              console.log('Response:', response);
         })
         .catch(function (error) {
           console.log('Error on add:', error);
         });
-    });*/ // end of post
+     }); // end of post
   
    const deleteItem = () => {
         console.log('in delete item axios');
@@ -53,7 +53,7 @@ function App() {
   return (
         <div className="App">
             <Header />
-            <GroceryForm />
+            <GroceryForm addItem={addItem}/>
            {/* <ShoppingList list={list}/>  */}
            
 
