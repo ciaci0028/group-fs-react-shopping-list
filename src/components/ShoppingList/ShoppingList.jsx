@@ -1,5 +1,10 @@
 function ShoppingList ({shoppingList}) {
     console.log('list', shoppingList);
+
+    const deleteItem = () => {
+        console.log('in delete item axios');
+        //axios.delete
+    };
     return (
         <>
         <div >
@@ -9,11 +14,11 @@ function ShoppingList ({shoppingList}) {
                 <button>Clear</button>
             </div>
         {shoppingList.map(item => (
-            <p className="itemDiv">
-                <h3>{item.name}</h3>
-                <h3>{item.quantity} {item.unit}</h3>
+            <p className="itemDiv" key={item.id}>
+                {item.name}<br/>
+                {item.quantity} {item.unit}<br/>
                 <button>Buy</button>
-                <button>Remove</button>
+                <button onClick={deleteItem}>Remove</button>
             </p>
         ))};
         </div>
