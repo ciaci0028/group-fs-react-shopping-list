@@ -1,6 +1,7 @@
 -- Don't forget to add your create table SQL 
 -- It is also helpful to include some test data
 
+
 -- Database name: shopping_list
 
 -- The decimals works like this: 
@@ -21,3 +22,4 @@ VALUES
 	('Apples', 2, 'pounds'),
 	('Sliced Almonds', 2.5, 'cups'),
 	('Bananas', 1, 'bunch');
+
