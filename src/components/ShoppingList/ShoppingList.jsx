@@ -3,6 +3,11 @@ function ShoppingList ({shoppingList}) {
     return (
         <>
         <div >
+            <div>
+                <h2>Shopping List</h2>
+                <button>Reset</button>
+                <button>Clear</button>
+            </div>
         {shoppingList.map(item => (
             <p className="itemDiv">
                 <h3>{item.name}</h3>

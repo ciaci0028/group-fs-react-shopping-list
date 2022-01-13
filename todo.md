@@ -9,20 +9,27 @@ To do:
                 unit VARCHAR(20)
                 }
 [ ] App.js
-    [Sub] axios.get (get items from db)
-    [Kay] axios.post (add new item)
-    [Sab] axios.delete (remove item)
-    [Sab] axios.put (update item as purchased)
+    [x] axios.get (get items from db)
+    [x] axios.post (add new item)
+    [ ] axios.delete (remove item)
+        [ ] Remove button (remove item)
+        [ ] Clear button (clears all items)
+    [ ] axios.put (update item as purchased)
+        [ ] Buy (removes buttons and says "purchased")
+        [ ] Reset (clears statuses)
 [ ] routers
     [ ] list.router.js
-        [Sub] get endpoint
-        [Kay] post endpoint
-        [Sab] delete endpoint
-        [Sab] put endpoint
+        [x] get endpoint
+        [x] post endpoint
+        [ ] delete endpoint
+        [ ] put endpoint
 [ ] Sources / components
-    [Sub] ShoppingList.jsx (displays groceries)   
-        [ ] Includes remove and buy buttons
-    [Sab] GroceryForm.jsx (input form)
+    [x] ShoppingList.jsx (displays groceries)   
+        [x] Includes remove and buy buttons
+        [ ] Reset button
+        [ ] Clear button
+    [x] GroceryForm.jsx (input form)
+[ ] CSS
 
 
 IMPORTANT SYNCHRONICITIES:
