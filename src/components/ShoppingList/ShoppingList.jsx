@@ -1,4 +1,4 @@
-import ShoppingList from '../ShoppingList/ShoppingList';
+
 
 function ShoppingList ({list}) {
     return (
