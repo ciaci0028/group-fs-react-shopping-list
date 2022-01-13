@@ -26,10 +26,12 @@ function App() {
 
     const deleteItem = () => {
         console.log('in delete item axios');
+        //axios.get
     };
 
     const modifyItem = () => {
         console.log('in modify item put axios');
+        // axios.put
     };
 
 
