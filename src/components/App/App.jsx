@@ -6,14 +6,16 @@ import './App.css';
 
 function App() {
 
-    axios.post('/list', newShoppingList)
-    .then( (response) => {
-      console.log('Response:', response);
-    
-    })
-    .catch(function (error) {
-      console.log('Error on add:', error);
-    });
+    function addItem = (newShoppingList) => {
+        axios.post('/list', newShoppingList)
+            .then( (response) => {
+             console.log('Response:', response);
+        })
+        .catch(function (error) {
+          console.log('Error on add:', error);
+        });
+    };
+        
     return (
         <div className="App">
             <Header />
