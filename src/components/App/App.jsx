@@ -26,7 +26,7 @@ function App() {
 
     const deleteItem = () => {
         console.log('in delete item axios');
-        //axios.get
+        //axios.delete
     };
 
     const modifyItem = () => {
