@@ -1,12 +1,16 @@
 
 
 function ShoppingList ({list}) {
+    console.log('list', list);
     return (
-        <>{
-        list.map(list => (
-            <ShoppingList key={list.id} list={list}/>
-        ))
-        }
+        <>
+        <ul>
+        {list.map(item => (
+            <li>
+                {item.name}
+            </li>
+        ))};
+        </ul>
        
         
         </>
