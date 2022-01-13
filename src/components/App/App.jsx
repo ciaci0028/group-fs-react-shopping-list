@@ -38,6 +38,16 @@ function App() {
           console.log('Error on add:', error);
         });
     }; // end of post
+  
+   const deleteItem = () => {
+        console.log('in delete item axios');
+        //axios.delete
+    };
+
+    const modifyItem = () => {
+        console.log('in modify item put axios');
+        // axios.put
+    };
 
   return (
         <div className="App">
