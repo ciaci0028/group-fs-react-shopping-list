@@ -1,10 +1,18 @@
+import axios from "axios";
+
 function ShoppingList ({shoppingList}) {
     console.log('list', shoppingList);
 
-    const deleteItem = () => {
+    const deleteItem = (event) => {
         console.log('in delete item axios');
+        const id = event;
+        console.log('id is', id);
         //axios.delete
+        axios.delete(`/list/${id}`)
+            .then()
+            .catch();
     };
+
     return (
         <>
         <div >
@@ -15,10 +23,10 @@ function ShoppingList ({shoppingList}) {
             </div>
         {shoppingList.map(item => (
             <p className="itemDiv" key={item.id}>
-                {item.name}<br/>
-                {item.quantity} {item.unit}<br/>
+                {item.name}<br />
+                {item.quantity} {item.unit}<br />
                 <button>Buy</button>
-                <button onClick={deleteItem}>Remove</button>
+                <button onClick={(event) => deleteItem(item.id)}>Remove</button>
             </p>
         ))};
         </div>
