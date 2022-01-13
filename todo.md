@@ -1,8 +1,8 @@
 To do:
-[Sab] SQL
-    [ ] Set up data base
-        [ ] SORT BY name
-        [ ] object {
+[x] SQL
+    [x] Set up data base
+        [x] SORT BY name
+        [x] object {
                 id PRIMARY SERIAL KEY, 
                 name VARCHAR (80), 
                 quantity INTEGER ** NEED TO FIGURE OUT DECIMALS, 
@@ -11,16 +11,16 @@ To do:
 [ ] App.js
     [Sub] axios.get (get items from db)
     [Kay] axios.post (add new item)
-    [ ] axios.delete (remove item)
-    [ ] axios.put (update item as purchased)
+    [Sab] axios.delete (remove item)
+    [Sab] axios.put (update item as purchased)
 [ ] routers
     [ ] list.router.js
         [Sub] get endpoint
         [Kay] post endpoint
-        [ ] delete endpoint
-        [ ] put endpoint
+        [Sab] delete endpoint
+        [Sab] put endpoint
 [ ] Sources / components
-    [ ] GroceryList.jsx (displays groceries)   
+    [Sub] ShoppingList.jsx (displays groceries)   
         [ ] Includes remove and buy buttons
     [Sab] GroceryForm.jsx (input form)
 

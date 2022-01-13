@@ -22,7 +22,13 @@ function App() {
         .catch((error) => {
             console.log('GET Failed', error);
         });
-    }
+    };
+
+    const deleteItem = () => {
+        console.log('in delete item axios');
+    };
+
+
     return (
         <div className="App">
             <Header />
