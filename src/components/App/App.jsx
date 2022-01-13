@@ -2,9 +2,24 @@ import React from 'react';
 
 import Header from '../Header/Header.jsx'
 import './App.css';
+import ShoppingList from '../ShoppingList/ShoppingList'
 
 
 function App() {
+    useEffect(() => {
+        fetchList();
+    }, []);
+    let [ShoppingList, setShoppingList] = useState([]);
+    const fetchList = () => {
+        axios.get('/list')
+        .then((res) => {
+            console.log('GET', res.data);
+            setShoppingList(res.data);
+        })
+        .catch((error) => {
+            console.log('GET Failed', error);
+        });
+    }
     return (
         <div className="App">
             <Header />
