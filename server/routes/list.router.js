@@ -45,6 +45,33 @@ router.delete('/:id', (req, res) => {
         })
 }); // End delete endpoint
 
+// Put endpoint
+router.put('/:id', (req, res) => {
+    console.log('in put endpoint', req.params.id);
+
+    // Talk to database
+    // THIS NEEDS TO BE MODIFIED MORE
+    let sqlText = `
+        UPDATE "groceries"
+        SET
+        WHERE "id" = $1;
+    `;
+
+    let sqlParams = [
+        req.params.id
+    ];
+
+    // Send to database
+    pool.query(sqlText, sqlParams)
+        .then(dbRes => {
+            console.log('put success', dbRes.rows);
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('put failure', error);
+            res.sendStatus(500);
+        });
+}) // End put endpoint
 
 
 module.exports = router;
