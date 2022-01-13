@@ -10,7 +10,7 @@ import GroceryForm from '../GroceryForm/GroceryForm'
 
 
 function App() {
-    let [ShoppingList, setShoppingList] = useState([]);
+    let [shoppingList, setShoppingList] = useState([]);
 
     useEffect(() => {
         fetchList();
@@ -20,27 +20,27 @@ function App() {
     // Start of get
     const fetchList = () => {
         axios.get('/list')
-        .then(res => {
-            console.log('GET', res.data);
-            setShoppingList(res.data);
+        .then(response => {
+            console.log('GET', response.data);
+            setShoppingList(response.data);
         })
         .catch((error) => {
             console.log('GET Failed', error);
         });
     }; // end of get
-  
+
     // start of post
     const addItem = ((newItem) => {
         axios.post('/list', newItem)
             .then( (response) => {
-             console.log('Response:', response);
+            console.log('Response:', response);
         })
         .catch(function (error) {
-          console.log('Error on add:', error);
+            console.log('Error on add:', error);
         });
      }); // end of post
-  
-   const deleteItem = () => {
+
+    const deleteItem = () => {
         console.log('in delete item axios');
         //axios.delete
     };
@@ -50,12 +50,11 @@ function App() {
         // axios.put
     };
 
-  return (
+    return (
         <div className="App">
             <Header />
             <GroceryForm addItem={addItem}/>
-           {/* <ShoppingList list={list}/>  */}
-           
+            <ShoppingList shoppingList={shoppingList}/> 
 
         </div>
     );
