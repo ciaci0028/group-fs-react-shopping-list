@@ -3,6 +3,8 @@ import React from 'react';
 import Header from '../Header/Header.jsx'
 import './App.css';
 import ShoppingList from '../ShoppingList/ShoppingList'
+import GroceryForm from '../GroceryForm/GroceryForm'
+
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
     return (
         <div className="App">
             <Header />
+            <GroceryForm />
             <main>
                 <p>Under Construction...</p>
             </main>
