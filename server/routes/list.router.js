@@ -5,12 +5,18 @@ const pool = require('../modules/pool.js');
 // TODO - Add routes here...
 
 
-// POST students
+// POST groceries
 router.post('/', (req, res) => {
-    const newShoppingList = req.body.list;
-    const sqlText = `INSERT INTO groceries (list) VALUES ($1)`;
+    console.log('this is req.body', req.body);
+    const sqlText = 
+    `INSERT INTO "groceries" ("list") 
+    VALUES ($1)`;
 
-    pool.query(sqlText, [newShoppingList])
+    let queryParams = [
+        req.body.list
+    ]
+
+    pool.query(sqlText, queryParams)
         .then((result) => {
             res.sendStatus(201);
         })
