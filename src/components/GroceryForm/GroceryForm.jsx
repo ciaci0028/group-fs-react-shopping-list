@@ -21,7 +21,16 @@ function GroceryForm () {
             unit: newItemUnits
         };
         console.log('new Item is:', newItem);
-    }
+
+        // Here is where I need to call the POST function
+
+        // Clear inputs
+        setNewItemName('');
+        setNewItemQuantity('');
+        setNewItemUnits('');
+
+    };
+
     return (
         <>
             <h1>Add Groceries</h1>
@@ -53,7 +62,7 @@ function GroceryForm () {
                     value={newItemUnits}
                     onChange={(evt) => setNewItemUnits(evt.target.value)}
                 ></input>
-                <button>
+                <button type="submit">
                     Submit
                 </button>
             </form>
