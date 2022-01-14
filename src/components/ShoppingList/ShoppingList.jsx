@@ -1,6 +1,6 @@
 import axios from "axios";
 
-function ShoppingList ({shoppingList, deleteItem, modifyItem}) {
+function ShoppingList ({shoppingList, deleteItem, modifyItem, clearAll}) {
     console.log('list', shoppingList);
 
    
@@ -10,7 +10,7 @@ function ShoppingList ({shoppingList, deleteItem, modifyItem}) {
             <div>
                 <h2>Shopping List</h2>
                 <button>Reset</button>
-                <button>Clear</button>
+                <button onClick={() => clearAll()}>Clear</button>
             </div>
         {shoppingList.map(item => (
             <p className="itemDiv" key={item.id}>

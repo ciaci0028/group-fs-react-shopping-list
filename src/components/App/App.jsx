@@ -73,7 +73,20 @@ function App() {
                 console.log('Delete Failed', err);
             });
     };
-
+    const clearAll = () => {
+        console.log('in clearAll axios');
+      
+        
+        //axios.delete
+        axios.delete(`/list`)
+            .then((response) =>{
+                console.log('Clear successful', response);
+                fetchList();
+            })
+            .catch((err) =>{
+                console.log('Clear Failed', err);
+            });
+    };
 
 
     return (
@@ -84,6 +97,7 @@ function App() {
              shoppingList={shoppingList} 
              deleteItem={deleteItem}
              modifyItem={modifyItem}
+             clearAll={clearAll}
              /> 
 
         </div>
