@@ -1,18 +1,9 @@
 import axios from "axios";
 
-function ShoppingList ({shoppingList}) {
+function ShoppingList ({shoppingList, deleteItem}) {
     console.log('list', shoppingList);
 
-    const deleteItem = (event) => {
-        console.log('in delete item axios');
-        const id = event;
-        console.log('id is', id);
-        //axios.delete
-        axios.delete(`/list/${id}`)
-            .then()
-            .catch();
-    };
-
+   
     return (
         <>
         <div >

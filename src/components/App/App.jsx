@@ -9,6 +9,7 @@ import GroceryForm from '../GroceryForm/GroceryForm'
 
 
 
+
 function App() {
     let [shoppingList, setShoppingList] = useState([]);
 
@@ -34,6 +35,7 @@ function App() {
         axios.post('/list', newItem)
             .then( (response) => {
             console.log('Response:', response);
+            fetchList();
         })
         .catch(function (error) {
             console.log('Error on add:', error);
@@ -47,11 +49,29 @@ function App() {
         // axios.put
     };
 
+    const deleteItem = (event) => {
+        console.log('in delete item axios');
+        const id = event;
+        console.log('id is', id);
+        //axios.delete
+        axios.delete(`/list/${id}`)
+            .then((response) =>{
+                console.log('Delete successful', response);
+                fetchList();
+            })
+            .catch((err) =>{
+                console.log('Delete Failed', err);
+            });
+    };
+
+
     return (
         <div className="App">
             <Header />
             <GroceryForm addItem={addItem}/>
-            <ShoppingList shoppingList={shoppingList}/> 
+            <ShoppingList 
+             shoppingList={shoppingList} 
+             deleteItem={deleteItem}/> 
 
         </div>
     );
