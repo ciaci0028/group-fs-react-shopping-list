@@ -11,8 +11,9 @@ CREATE TABLE "groceries" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR(80) NOT NULL,
     "quantity" DECIMAL (4,2),
-    "unit" VARCHAR(20)
-)
+    "unit" VARCHAR(20),
+    "purchased" BOOLEAN DEFAULT FALSE
+);
 
 INSERT INTO "groceries"
 	("name", "quantity", "unit")
