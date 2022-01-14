@@ -16,7 +16,7 @@ function App() {
     useEffect(() => {
         fetchList();
     }, []);
-  
+
     
     // Start of get
     const fetchList = () => {
@@ -32,6 +32,7 @@ function App() {
 
     // start of post
     const addItem = ((newItem) => {
+        console.log('new item is:', newItem)
         axios.post('/list', newItem)
             .then( (response) => {
             console.log('Response:', response);
@@ -43,21 +44,29 @@ function App() {
      }); // end of post
 
     
-
-    const modifyItem = (event) => {
-        console.log('in modify item put axios');
-        // axios.put
-        const id = event;
-        axios.put(`/list/${id}`)
-        .then((response) =>{
-            console.log('PUT successful', response);
-            fetchList();
-        })
-        .catch((err) =>{
-            console.log('PUT Failed', err);
-        });
+    const modifyItem = ((modifiedItem) => {
+        console.log('in modify item put axios', modifiedItem);
         
-    };
+        // Change status to true
+        modifiedItem.purchased = true;
+
+        // axios put
+        axios.put(`/list/${modifiedItem.id}`, modifiedItem)
+            .then((response) =>{
+                console.log('modify successful', response);
+                fetchList();
+            })
+            .catch((err) =>{
+                console.log('modify Failed', err);
+            });
+
+        
+    });
+
+    const resetItems = () => {
+        console.log('in reset');
+        fetchList();
+    }
 
     const deleteItem = (event) => {
         console.log('in delete item axios');
@@ -73,9 +82,9 @@ function App() {
                 console.log('Delete Failed', err);
             });
     };
+    
     const clearAll = () => {
         console.log('in clearAll axios');
-      
         
         //axios.delete
         axios.delete(`/list`)
@@ -94,11 +103,12 @@ function App() {
             <Header />
             <GroceryForm addItem={addItem}/>
             <ShoppingList 
-             shoppingList={shoppingList} 
-             deleteItem={deleteItem}
-             modifyItem={modifyItem}
-             clearAll={clearAll}
-             /> 
+                shoppingList={shoppingList} 
+                deleteItem={deleteItem}
+                clearAll={clearAll}
+                modifyItem={modifyItem}
+                resetItems={resetItems}
+            /> 
 
         </div>
     );

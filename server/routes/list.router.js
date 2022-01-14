@@ -93,16 +93,18 @@ router.delete('/', (req, res) => {
 // Put endpoint
 router.put('/:id', (req, res) => {
     console.log('in put endpoint', req.params.id);
+    console.log('req.body', req.body);
 
     // Talk to database
     // THIS NEEDS TO BE MODIFIED MORE
     let sqlText = `
         UPDATE "groceries"
-        SET
-        WHERE "id" = $1;
+        SET "purchased" = $1
+        WHERE "id" = $2;
     `;
 
     let sqlParams = [
+        req.body.purchased,
         req.params.id
     ];
 
