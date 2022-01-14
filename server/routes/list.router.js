@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
+
 // TODO - Add routes here...
 // Get endpoint
 router.get('/', (req, res) => {
@@ -47,7 +48,7 @@ router.delete('/:id', (req, res) => {
     // Talk to the database
     const sqlText = `
         DELETE FROM "groceries"
-        WHERE id = $1;
+        WHERE id = $1
     `;
 
     // For secrecy
