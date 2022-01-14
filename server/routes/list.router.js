@@ -67,6 +67,29 @@ router.delete('/:id', (req, res) => {
         })
 }); // End delete endpoint
 
+// Delete endpoint
+router.delete('/', (req, res) => {
+    console.log('in clearAll endpoint');
+
+    // Talk to the database
+    const sqlText = `
+        DELETE FROM "groceries"
+    `;
+
+    // For secrecy
+    
+
+    // Pool query to delete from db
+    pool.query(sqlText)
+        .then( () => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('failed to clear', error);
+            res.sendStatus(500);
+        })
+}); // End delete endpoint
+
 // Put endpoint
 router.put('/:id', (req, res) => {
     console.log('in put endpoint', req.params.id);
@@ -94,6 +117,7 @@ router.put('/:id', (req, res) => {
             res.sendStatus(500);
         });
 }) // End put endpoint
+
 
 
 

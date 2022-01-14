@@ -44,9 +44,19 @@ function App() {
 
     
 
-    const modifyItem = () => {
+    const modifyItem = (event) => {
         console.log('in modify item put axios');
         // axios.put
+        const id = event;
+        axios.put(`/list/${id}`)
+        .then((response) =>{
+            console.log('PUT successful', response);
+            fetchList();
+        })
+        .catch((err) =>{
+            console.log('PUT Failed', err);
+        });
+        
     };
 
     const deleteItem = (event) => {
@@ -63,6 +73,20 @@ function App() {
                 console.log('Delete Failed', err);
             });
     };
+    const clearAll = () => {
+        console.log('in clearAll axios');
+      
+        
+        //axios.delete
+        axios.delete(`/list`)
+            .then((response) =>{
+                console.log('Clear successful', response);
+                fetchList();
+            })
+            .catch((err) =>{
+                console.log('Clear Failed', err);
+            });
+    };
 
 
     return (
@@ -71,7 +95,10 @@ function App() {
             <GroceryForm addItem={addItem}/>
             <ShoppingList 
              shoppingList={shoppingList} 
-             deleteItem={deleteItem}/> 
+             deleteItem={deleteItem}
+             modifyItem={modifyItem}
+             clearAll={clearAll}
+             /> 
 
         </div>
     );
